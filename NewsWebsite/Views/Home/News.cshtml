@@ -1,0 +1,36 @@
+﻿@model List<News>
+
+@{
+    ViewData["Title"] = "News";
+}
+<!-- ======= News Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h1>أخبار @ViewData["Cat"]</h1>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="~/assets/img/about.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+                    <h3>@item.Title</h3>
+                    <h5>@item.Date</h5>
+                    <p class="fst-italic">
+                        @item.Topic
+                    </p>
+                    <a href="/Home/DeleteNews/@item.ID" class="btn btn-danger" onclick="return confirm( 'هل انت متأكد من انك تريد مسح هذا الخبر');"> مسح الخبر</a>
+
+                </div>
+
+            }
+        </div>
+
+    </div>
+</section><!-- End News Section -->

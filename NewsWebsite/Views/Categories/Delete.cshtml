@@ -1,0 +1,34 @@
+﻿@model CoreLogic.Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3 style="text-align:center;margin:5px">هل أنت متأكد أنك تريد مسح هذه الفئة؟</h3>
+<div>
+
+    <div class="container">
+        <h4>الفئة</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ID" />
+            <input type="submit" style="margin:5px" value="مسح" class="btn btn-danger" /> |
+            <a asp-action="Index">العودة إلى القائمة السابقة</a>
+        </form>
+    </div>
+</div>
